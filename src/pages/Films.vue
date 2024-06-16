@@ -2,7 +2,7 @@
   <div>
     <h1>Films Page</h1>
     <p>Welcome to the films page!</p>
-    <button @click="fetchData">Fetch Films</button>
+    <button @click="fetchData">Fetch Films</button> <!-- Fetches every row from the films table within the database. -->
     <table v-if="data.length">
       <thead>
         <tr>

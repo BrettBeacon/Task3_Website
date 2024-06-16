@@ -9,6 +9,7 @@ const port = 3000;
 app.use(express.json());
 app.use(cors());
 
+// Database information
 const pool = new Pool({
   host: "localhost",
   user: "postgres",
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+// Used for the fetching of all films within the database.
 app.get('/api/data', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM film');
@@ -31,6 +33,7 @@ app.get('/api/data', async (req, res) => {
   }
 });
 
+// Used in both the delete and search pages, uses the ILIKE to search for any information that is similar
 app.post('/api/search', async (req, res) => {
   const { title } = req.body;
   try {
@@ -42,6 +45,7 @@ app.post('/api/search', async (req, res) => {
   }
 });
 
+// Used to add to the database based on the information provided from the user.
 app.post('/api/add-film', async (req, res) => {
   const { title, desc, year, language, length } = req.body;
   try {
@@ -53,6 +57,7 @@ app.post('/api/add-film', async (req, res) => {
   }
 });
 
+// Used to delete data from the database using the selected film
 app.delete('/api/delete/:id', async (req, res) => {
   const film_id = req.params.id;
   try {

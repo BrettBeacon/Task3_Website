@@ -1,4 +1,6 @@
 // src/router/index.js
+
+// Router for each page
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
 import About from '../pages/About.vue'
@@ -7,6 +9,7 @@ import Search from '../pages/Search.vue'
 import Add from '../pages/Add.vue'
 import Delete from '../pages/Delete.vue'
 
+// Routes
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },

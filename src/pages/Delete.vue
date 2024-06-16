@@ -1,6 +1,7 @@
 <template>
     <div>
       <h1>Delete Films</h1>
+      <!-- Gives the user the ability to delete data from the database -->
       <form @submit.prevent="searchData">
         <label for="name">Film Title:</label>
         <input type="text" v-model="title" id="title" required>
@@ -44,6 +45,7 @@
       };
     },
     methods: {
+      // Let the user search for the item they want to delete
       async searchData() {
         try {
           const response = await axios.post('http://localhost:3000/api/search', { title: this.title });
@@ -54,6 +56,7 @@
         }
       },
       async confirmDelete(filmId) {
+        // Confirm they want to delete this item from the database
       const confirmed = confirm('Are you sure you want to delete this item?');
       if (confirmed) {
         try {

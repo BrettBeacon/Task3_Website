@@ -1,6 +1,7 @@
 <!-- src/pages/Home.vue -->
 <template>
   <div>
+    <!-- Just a simple home page to explain what the website does overall. -->
     <h1>Home Page</h1>
     <p>Grab the data from a database of films, search for a film within the database, or add a film that isn't there.</p>
   </div>

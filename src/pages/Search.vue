@@ -1,16 +1,18 @@
 <!-- src/pages/Search.vue -->
 <template>
     <div>
+      <!-- Gives the user the ability to search the database using a word, it will match closely to what they typed. -->
       <h1>Search Films</h1>
       <form @submit.prevent="searchData">
         <label for="name">Film Title:</label>
         <input type="text" v-model="title" id="title" required>
         <button type="submit">Search</button>
-        <button type="button" @click="clearData">Clear</button>
+        <button type="button" @click="clearData">Clear</button> <!-- Clearing the input -->
       </form>
       <table v-if="results.length">
         <thead>
           <tr>
+            <!-- Building the table with the revelant information from the database -->
             <th>Film ID</th>
             <th>Title</th>
             <th>Description</th>
@@ -19,6 +21,7 @@
           </tr>
         </thead>
         <tbody>
+          <!-- Filling the table with the information from the request. -->
           <tr v-for="item in results" :key="item.film_id">
             <td>{{ item.film_id }}</td>
             <td>{{ item.title }}</td>
@@ -45,6 +48,7 @@
     methods: {
       async searchData() {
         try {
+          // Getting the data from the database to present to the user.
           const response = await axios.post('http://localhost:3000/api/search', { title: this.title });
           console.log(response.data); // Log the fetched data to the console
           this.results = response.data; // Update the results property to display on the webpage

@@ -2,6 +2,8 @@
 <template>
     <div>
       <h1>Add Film</h1>
+      <!-- Gives the user the ability to add films to the database, however, this form is not complete
+            and is only asking for the bare minimum of information, but it shows the concept. -->
       <p>This is where you can add a film to the database.</p>
       <form @submit.prevent="submitForm">
         <label for="title">Film Title:</label>

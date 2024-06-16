@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <nav>
+      <!-- The main navigation bar and routing links to each page. -->
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/films">Films</router-link>
