@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgresContainer
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dvdrental
+    volumes:
+      - ./init-db:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
